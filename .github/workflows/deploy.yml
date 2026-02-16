@@ -1,26 +1,7 @@
-name: Deploy to Bluehost via FTP
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  ftp-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      # 1️⃣ Checkout repository
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # 2️⃣ Deploy via FTP
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 21                  # Add this line for FileZilla-compatible port
-          local-dir: ./             # Your website files
-          server-dir: /public_html/ # Remote directory on Bluehost test
+- name: 📂 FTP Deploy
+  uses: SamKiriles/ftp-deploy@v2 # Or whichever FTP action you are using
+  with:
+    server: ${{ secrets.FTP_SERVER }}
+    username: ${{ secrets.FTP_USERNAME }}
+    password: ${{ secrets.FTP_PASSWORD }}
+    # local-dir: ./dist/ (Optional: specify the folder to upload)
