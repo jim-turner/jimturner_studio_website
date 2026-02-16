@@ -23,4 +23,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21                  # Add this line for FileZilla-compatible port
           local-dir: ./             # Your website files
-          server-dir: /public_html/ # Remote directory on Bluehost
+          server-dir: /public_html/ # Remote directory on Bluehost test
