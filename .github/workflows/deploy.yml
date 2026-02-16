@@ -3,23 +3,23 @@ name: Deploy to Bluehost via FTP
 on:
   push:
     branches:
-      - main  # Trigger the action when code is pushed to the main branch
+      - main
 
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
+      # 1️⃣ Checkout repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Deploy the code to Bluehost via FTP
+      # 2️⃣ Deploy via FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./           # Path to the local directory you want to deploy
-          server-dir: /public_html/  # The remote directory where your site files should go
+          local-dir: ./           # Or ./subfolder if your website files are in a subfolder
+          server-dir: /public_html/
