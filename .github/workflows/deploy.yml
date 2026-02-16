@@ -16,7 +16,7 @@ jobs:
 
       # Step 2: Deploy the code to Bluehost via FTP
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.0.1
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
