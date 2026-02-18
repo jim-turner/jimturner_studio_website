@@ -59,14 +59,21 @@ const nodeData = {
         `,
         insight: 'Treating a lifestyle purchase as a capital allocation strategy.'
     },
-    'spatial': {
-        category: 'Design Optimization',
-        title: 'The 16.4ft Constraint',
-        content: `
-            <p>Utility is maximized when the tool can be used in 100% of environments. The Camroad utilizes a cab-over design, placing the habitat over the engine to minimize total length while maintaining 4-person capacity.</p>
-        `,
-        insight: 'Optimization is about maximizing the "Utility-per-Square-Foot" ratio.'
-    },
+  'spatial': {
+    category: 'Design Optimization',
+    title: 'The 16.4ft Constraint',
+    content: `
+        <p>By utilizing a cab-over chassis, the Toyota Camroad provides a full kitchen and sleeping for four within the footprint of a standard SUV.</p>
+        
+        <div class="photo-grid">
+            <img src="images/exterior-side.jpg" alt="Camroad Profile">
+            <img src="images/interior-layout.jpg" alt="Interior space">
+            <img src="images/parking-comparison.jpg" alt="Fits in standard spot">
+            <img src="images/fiberglass-shell.jpg" alt="Monocoque detail">
+        </div>
+    `,
+    insight: 'Optimization is about maximizing the "Utility-per-Square-Foot" ratio.'
+},
     'pivot': {
         category: 'Logistics Execution',
         title: 'The JDM Pivot',
@@ -103,3 +110,4 @@ function showNode(id) {
 function closeDrawer() {
     document.getElementById('drawer').classList.remove('active');
 }
+
