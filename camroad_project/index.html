@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Logic | Project Camroad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main id="app-container">
+        <section id="canvas">
+            <header class="map-header">
+                <h1>PROJECT CAMROAD</h1>
+                <p>A First-Principles Case Study in Global Asset Procurement</p>
+               
+            </header>
+
+            <div class="tree-container">
+                <div class="node root" onclick="showNode('root')">The Objective</div>
+                <div class="connector"></div>
+                
+                <div class="branch-row">
+                    <div class="node" onclick="showNode('mech')">Mechanical Analysis</div>
+                    <div class="node" onclick="showNode('finance')">Financial Arbitrage</div>
+                    <div class="node" onclick="showNode('spatial')">Spatial Efficiency</div>
+                </div>
+                
+                <div class="connector"></div>
+                <div class="node pivot" onclick="showNode('pivot')">The JDM Pivot</div>
+            </div>
+        </section>
+
+        <aside id="drawer">
+            <button class="close-btn" onclick="closeDrawer()">&times;</button>
+            <div id="drawer-content">
+                <div class="placeholder-text">Select a node to view the research data.</div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
