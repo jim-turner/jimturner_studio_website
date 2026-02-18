@@ -1,3 +1,7 @@
+/**
+ * PROJECT CAMROAD: DECISION LOGIC DATA
+ * This object holds all the research content for the interactive drawer.
+ */
 const nodeData = {
     'root': {
         category: 'Strategic Objective',
@@ -24,26 +28,10 @@ const nodeData = {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Engine Tech</td>
-                            <td>Electronic / DEF</td>
-                            <td>Pure Mechanical</td>
-                        </tr>
-                        <tr>
-                            <td>Length</td>
-                            <td>24ft - 31ft</td>
-                            <td>16.4ft (Std. Spot)</td>
-                        </tr>
-                        <tr>
-                            <td>Chassis</td>
-                            <td>Ford/Chevy</td>
-                            <td>Toyota Hilux/Dyna</td>
-                        </tr>
-                        <tr>
-                            <td>Body Shell</td>
-                            <td>Wood/Staples</td>
-                            <td>Fiberglass Mono</td>
-                        </tr>
+                        <tr><td>Engine Tech</td><td>Electronic / DEF</td><td>Pure Mechanical</td></tr>
+                        <tr><td>Length</td><td>24ft - 31ft</td><td>16.4ft (Std. Spot)</td></tr>
+                        <tr><td>Chassis</td><td>Ford/Chevy</td><td>Toyota Hilux/Dyna</td></tr>
+                        <tr><td>Body Shell</td><td>Wood/Staples</td><td>Fiberglass Mono</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -59,21 +47,21 @@ const nodeData = {
         `,
         insight: 'Treating a lifestyle purchase as a capital allocation strategy.'
     },
-  'spatial': {
-    category: 'Design Optimization',
-    title: 'The 16.4ft Constraint',
-    content: `
-        <p>By utilizing a cab-over chassis, the Toyota Camroad provides a full kitchen and sleeping for four within the footprint of a standard SUV.</p>
-        
-        <div class="photo-grid">
-            <img src="images/exterior-side.jpg" alt="Camroad Profile">
-            <img src="images/interior-layout.jpg" alt="Interior space">
-            <img src="images/parking-comparison.jpg" alt="Fits in standard spot">
-            <img src="images/fiberglass-shell.jpg" alt="Monocoque detail">
-        </div>
-    `,
-    insight: 'Optimization is about maximizing the "Utility-per-Square-Foot" ratio.'
-},
+    'spatial': {
+        category: 'Design Optimization',
+        title: 'The 16.4ft Constraint',
+        content: `
+            <p>By utilizing a cab-over chassis, the Toyota Camroad provides a full kitchen and sleeping for four within the footprint of a standard SUV.</p>
+            
+            <div class="photo-grid">
+                <img src="images/exterior-side.jpg" alt="Camroad Profile" onclick="openLightbox(this.src)">
+                <img src="images/interior-layout.jpg" alt="Interior space" onclick="openLightbox(this.src)">
+                <img src="images/parking-comparison.jpg" alt="Fits in standard spot" onclick="openLightbox(this.src)">
+                <img src="images/fiberglass-shell.jpg" alt="Monocoque detail" onclick="openLightbox(this.src)">
+            </div>
+        `,
+        insight: 'Optimization is about maximizing the "Utility-per-Square-Foot" ratio.'
+    },
     'pivot': {
         category: 'Logistics Execution',
         title: 'The JDM Pivot',
@@ -85,13 +73,23 @@ const nodeData = {
     }
 };
 
+/**
+ * UI CONTROLLER FUNCTIONS
+ */
+
+// Function to open the side drawer and inject content
 function showNode(id) {
     const data = nodeData[id];
     const drawer = document.getElementById('drawer');
     const content = document.getElementById('drawer-content');
-    
 
-    // Update Drawer Content
+    // Safety check: ensure the elements exist in index.html
+    if (!drawer || !content) {
+        console.error("Drawer elements not found in HTML.");
+        return;
+    }
+
+    // Build and inject the HTML content
     content.innerHTML = `
         <p style="color: var(--accent-blue); font-size: 0.75rem; text-transform: uppercase; font-weight: bold;">${data.category}</p>
         <h2 style="margin-top: 5px; font-weight: 300; border-bottom: 1px solid var(--border); padding-bottom: 15px;">${data.title}</h2>
@@ -104,10 +102,35 @@ function showNode(id) {
         </div>
     `;
 
+    // Slide the drawer in
     drawer.classList.add('active');
 }
 
+// Function to close the side drawer
 function closeDrawer() {
-    document.getElementById('drawer').classList.remove('active');
+    const drawer = document.getElementById('drawer');
+    if (drawer) {
+        drawer.classList.remove('active');
+    }
 }
 
+/**
+ * LIGHTBOX LOGIC
+ * Handles the full-screen image expansion
+ */
+function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    if (lightbox && lightboxImg) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.classList.remove('active');
+    }
+}
