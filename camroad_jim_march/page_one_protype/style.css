@@ -1,0 +1,46 @@
+/* Global Container */
+.magazine-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", sans-serif;
+}
+
+/* Base Page Setup */
+.magazine-page {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12 equal columns */
+  gap: 20px;
+  padding: 60px 40px;
+  min-height: 100vh;
+  border-bottom: 1px solid #eee;
+}
+
+/* PAGE 1 SPECIFIC AREAS */
+#page-1 {
+  grid-template-areas: 
+    "head head head head . . . . . . . ."
+    "text text text text text text text . . . . ."
+    "gall gall gall gall gall gall gall gall gall gall gall gall"
+    "leg  leg  leg  leg  leg  leg  leg  leg  leg  leg  leg  leg";
+}
+
+/* Assigning Classes to Areas */
+.header-area  { grid-area: head; border-bottom: 2px solid #000; }
+.copy-area    { grid-area: text; padding-top: 20px; }
+.gallery-area { grid-area: gall; display: flex; gap: 15px; }
+.legend-area  { grid-area: leg;  border-top: 1px solid #ccc; font-size: 11px; }
+
+/* Styling for the Japanese Magazine feel */
+.header-area h1 { font-size: 3rem; margin: 0; letter-spacing: -2px; }
+.copy-area h2 { font-size: 1.8rem; margin-bottom: 10px; }
+.legend-columns { column-count: 2; column-gap: 30px; line-height: 1.6; }
+
+.photo-left  { flex: 1; }
+.photo-right { flex: 1; max-width: 45%; } /* Constrain right image width so it doesn't dominate */
+.photo-left img,
+.photo-right img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
