@@ -34,7 +34,7 @@
 /* Styling for the Japanese Magazine feel */
 .header-area h1 { font-size: 3rem; margin: 0; letter-spacing: -2px; }
 .copy-area h2 { font-size: 1.8rem; margin-bottom: 10px; }
-.legend-columns { column-count: 2; column-gap: 30px; line-height: 1.6; }
+.legend-columns { column-count: 1; column-gap: 30px; line-height: 1.6; }
 
 .photo-left  { flex: 1; }
 .photo-right { flex: 1; max-width: 45%; } /* Constrain right image width so it doesn't dominate */
